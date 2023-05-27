@@ -18,6 +18,7 @@ void DtoB_print(const char ch);
 void print_Alpha(const char ch);
 void print(const char ch, const int flag);
 void print_chart(int flag);
+void print_help(void);
 
 int main (const int argc, const char* argv[])
 {
@@ -221,9 +222,7 @@ void check_h_v(const char* str)
     }
     else if((!strcmp("-h", str)) || (!strcmp("--help", str)))
     {
-        system("echo \x1B[93m");
-        printf("This will print help");
-        system("echo \x1B[0m");
+        print_help();
         exit(0);//help fun will be added soon
     }
 }
@@ -290,4 +289,32 @@ void print_chart(int flag)
         else
             printf(" ");
     }
+}
+
+void print_help(void)
+{
+    system("echo \x1B[93m");
+    ////////// Usage 1 //////////
+    printf("Usage 1 : ascii\t[-v | --version] [-h | --help]\n");
+    printf("\t\t[-d | --decimal] [-b | --binary] [-x | --hexa]\n");
+    printf("Message options\n");
+    printf("\t-d, --decimal\tASCII chart with respective decimal numbers\n");
+    printf("\t-b, --binary\tASCII chart with respective binary numbers\n");
+    printf("\t-x, --hexa\tASCII chart with respective hexadecimal numbers\n");
+    system("echo \x1B[94m   +------------------------------------------------+\x1B[93m");
+    ////////// Usage 2 //////////
+    printf("Usage 2 : ascii\t{decimal}\n\t\t{binary}\n\t\t{hexa}\n");
+    printf("Print equivalent ASCII character\n\n");
+    printf("Number Format Examples\n");
+    printf("\tdecimal\t85\n\tbinary\t0b1010101 | 0B1010101 (7 Bits)\n\thexa\t0x55 | 0X55\n");
+    system("echo \x1B[94m   +------------------------------------------------+\x1B[93m");
+    ////////// Usage 3 //////////
+    printf("Usage 3 : ascii {char}\t[<options>] [<options>] [<options>]\n\n");
+    printf("Char Format\n\t\'U\' (cmd) | \"\'U\'\" (powershell)\n");
+    printf("Message options\n");
+    printf("\tnone\t\tprint respective decimal, binary, and hexadecimal numbers\n");
+    printf("\t-d, --decimal\tprint respective decimal numbers\n");
+    printf("\t-b, --binary\tprint respective binary numbers\n");
+    printf("\t-x, --hexa\tprint respective hexadecimal numbers\n");
+    system("echo \x1B[94m   +------------------------------------------------+\x1B[0m");
 }
