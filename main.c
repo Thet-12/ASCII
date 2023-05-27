@@ -71,43 +71,50 @@ int main (const int argc, const char* argv[])
     switch (status)
     {    
         case 1:
-            printf("Insufficient Arguments\n");
+            system("echo \x1B[91mInsufficient Arguments\x1B[0m\n");
             break;
         case 2:
+            system("echo \x1B[94m");
             print(c,ALPHA);
             print(c,DECIMAL);
             print(c,BINARY);
             print(c,HEXA);
-            printf("\n");
+            system("echo \x1B[0m");
             break;
         case 3:
+            system("echo \x1B[92m");
             print_chart(flag_[0]);
+            system("echo \x1B[0m");
             break;
         case 4:
+            system("echo \x1B[94m");
             printf("ASCII character for %s : ",argv[1]);
             print(c_num,ALPHA);
-            printf("\n");
+            system("echo \x1B[0m");
             break;
         case 5:
+            system("echo \x1B[94m");
             print(c,ALPHA);
             print(c,flag_[0]);
-            printf("\n");
+            system("echo \x1B[0m");
             break;
         case 6:
+            system("echo \x1B[94m");
             print(c,ALPHA);
             print(c,flag_[0]);
             print(c,flag_[1]);
-            printf("\n");
+            system("echo \x1B[0m");
             break;
         case 7:
+            system("echo \x1B[94m");
             print(c,ALPHA);
             print(c,flag_[0]);
             print(c,flag_[1]);
             print(c,flag_[2]);
-            printf("\n");
+            system("echo \x1B[0m");
             break;
         default:
-            printf("Wrong Arguments\n");
+            system("echo \x1B[91mWrong Arguments\x1B[0m\n");
             break;
     }
     return 0;
@@ -207,12 +214,16 @@ void check_h_v(const char* str)
 {
     if((!strcmp("-v", str)) || (!strcmp("--version", str)))
     {
-        printf("ASCII Table\nVersion 1.0 (2023)\nFree Software by Thomas.\n");
+        system("echo \x1B[96m");
+        printf("ASCII Table\nVersion 1.0 (2023)\nFree Software by Thomas.");
+        system("echo \x1B[0m");
         exit(0);
     }
     else if((!strcmp("-h", str)) || (!strcmp("--help", str)))
     {
-        printf("This will print help\n");
+        system("echo \x1B[93m");
+        printf("This will print help");
+        system("echo \x1B[0m");
         exit(0);//help fun will be added soon
     }
 }
