@@ -14,7 +14,7 @@ int power(int base, unsigned int p)
 
 const char* command_list[NUM_CMD] = 
 {
-    "NUL",
+    "NULL",
     "SOH",
     "STX",
     "ETX",

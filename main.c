@@ -88,8 +88,7 @@ int main (const int argc, const char* argv[])
             system("echo \x1B[0m");
             break;
         case 4:
-            system("echo \x1B[94m");
-            printf("ASCII character for %s : ",argv[1]);
+            printf("ASCII character for \x1B[94m%s\x1B[0m : \x1B[94m",argv[1]);
             print(c_num,ALPHA);
             system("echo \x1B[0m");
             break;
@@ -247,13 +246,13 @@ void DtoB_print(const char ch)
 void print_Alpha(const char ch)
 {
     if(ch < ' ')
-        printf("%-3s ",command_list[(int)ch]);
+        printf("%-4s ",command_list[(int)ch]);
     else if(ch == ' ')
-        printf("\' \' ");
+        printf("\' \'  ");
     else if(ch == 127)
-        printf("%-3s ",command_list[33]);
+        printf("%-4s ",command_list[33]);
     else
-        printf("%-3c ",ch);
+        printf("%-4c ",ch);
 }
 
 void print(const char ch, const int flag)
@@ -293,23 +292,22 @@ void print_chart(int flag)
 
 void print_help(void)
 {
-    system("echo \x1B[93m");
     ////////// Usage 1 //////////
-    printf("Usage 1 : ascii\t[-v | --version] [-h | --help]\n");
+    printf("\x1B[92mUsage 1\x1B[93m : ascii\t[-v | --version] [-h | --help]\n");
     printf("\t\t[-d | --decimal] [-b | --binary] [-x | --hexa]\n");
     printf("Message options\n");
     printf("\t-d, --decimal\tASCII chart with respective decimal numbers\n");
     printf("\t-b, --binary\tASCII chart with respective binary numbers\n");
     printf("\t-x, --hexa\tASCII chart with respective hexadecimal numbers\n");
-    system("echo \x1B[94m   +------------------------------------------------+\x1B[93m");
+    system("echo \x1B[94m   +------------------------------------------------+\x1B[92m");
     ////////// Usage 2 //////////
-    printf("Usage 2 : ascii\t{decimal}\n\t\t{binary}\n\t\t{hexa}\n");
+    printf("Usage 2\x1B[93m : ascii\t{decimal}\n\t\t{binary}\n\t\t{hexa}\n");
     printf("Print equivalent ASCII character\n\n");
     printf("Number Format Examples\n");
     printf("\tdecimal\t85\n\tbinary\t0b1010101 | 0B1010101 (7 Bits)\n\thexa\t0x55 | 0X55\n");
-    system("echo \x1B[94m   +------------------------------------------------+\x1B[93m");
+    system("echo \x1B[94m   +------------------------------------------------+\x1B[92m");
     ////////// Usage 3 //////////
-    printf("Usage 3 : ascii {char}\t[<options>] [<options>] [<options>]\n\n");
+    printf("Usage 3\x1B[93m : ascii {char}\t[<options>] [<options>] [<options>]\n\n");
     printf("Char Format\n\t\'U\' (cmd) | \"\'U\'\" (powershell)\n");
     printf("Message options\n");
     printf("\tnone\t\tprint respective decimal, binary, and hexadecimal numbers\n");
