@@ -88,7 +88,8 @@ int main (const int argc, const char* argv[])
             system("echo \x1B[0m");
             break;
         case 4:
-            printf("ASCII character for \x1B[94m%s\x1B[0m : \x1B[94m",argv[1]);
+            system("echo \x1B[94m");
+            printf("ASCII character for %s : ",argv[1]);
             print(c_num,ALPHA);
             system("echo \x1B[0m");
             break;
@@ -293,7 +294,8 @@ void print_chart(int flag)
 void print_help(void)
 {
     ////////// Usage 1 //////////
-    printf("\x1B[92mUsage 1\x1B[93m : ascii\t[-v | --version] [-h | --help]\n");
+    system("echo \x1B[92m");
+    printf("Usage 1\x1B[93m : ascii\t[-v | --version] [-h | --help]\n");
     printf("\t\t[-d | --decimal] [-b | --binary] [-x | --hexa]\n");
     printf("Message options\n");
     printf("\t-d, --decimal\tASCII chart with respective decimal numbers\n");
