@@ -88,8 +88,12 @@ int main (const int argc, const char* argv[])
             system("echo \x1B[0m");
             break;
         case 4:
-            system("echo \x1B[94m");
-            printf("ASCII character for %s : ",argv[1]);
+            printf("ASCII character for");
+            printf("\x1B[94m");
+            printf(" %s ",argv[1]);
+            printf("\x1B[0m");
+            printf(": ");
+            printf("\x1B[94m");
             print(c_num,ALPHA);
             system("echo \x1B[0m");
             break;
